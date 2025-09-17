@@ -1,0 +1,629 @@
+@import url("https://fonts.cdnfonts.com/css/poppins");
+:root {
+  /* colors */
+  --primary-colour: #457b9d;
+  --secondary-colour: #e9c46a;
+  --black-colour: #000000;
+  --white-colour: #ffffff;
+  --gradient-colour: linear-gradient(
+    0deg,
+    rgba(69, 123, 157, 1) 0%,
+    rgba(54, 67, 79, 1) 100%
+  );
+
+  /* typography */
+  --p-fontsize: 18px;
+  --h1-fontsize: 24px;
+  --h2-fontsize: 24px;
+  --h3-fontsize: 19.2px;
+
+  /* box shadow */
+  --box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* default Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: var(--p-fontsize);
+  color: var(--black-colour);
+  line-height: 1.5;
+  background: radial-gradient(73% 147%, #f0ffff 59%, #f0ffff 100%),
+    radial-gradient(
+      91% 146%,
+      rgba(255, 255, 255, 0.5) 47%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  background-blend-mode: screen;
+}
+
+/* typography Styles */
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*secondary button styling */
+
+.secondary_btn {
+  color: var(--white-colour);
+  background-color: var(--primary-colour);
+  padding: 15px;
+  font-weight: bold;
+  box-shadow: var(--box-shadow);
+  transition: box-shadow 0.3s, transform 0.2s;
+  border-radius: 1.5rem;
+}
+
+.secondary_btn:hover {
+  color: var(--primary-colour);
+  background-color: var(--secondary-colour);
+  box-shadow: 0 0 10px var(--secondary-colour);
+  transform: scale(1.1);
+}
+
+/* header */
+
+.header {
+  display: flex;
+  background: var(--gradient-colour);
+  justify-content: space-between;
+  position: fixed;
+  padding: 0px 40px;
+  width: 100%;
+  height: 110px;
+  z-index: 1000;
+}
+
+.header .logo img {
+  width: 80px;
+  transition: transform 0.3s ease;
+}
+
+.header .logo img:hover {
+  transform: scale(1.1);
+}
+
+.nav_bar ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav_bar ul li {
+  padding: 40px;
+}
+
+.nav_bar ul li a {
+  font-size: var(--h2-fontsize);
+  color: var(--white-colour);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav_bar .dropdown_nav li {
+  display: block;
+  padding: 20px;
+}
+
+.nav_bar .dropdown_nav {
+  width: 100%;
+  background: var(--gradient-colour);
+  z-index: 999;
+  display: none;
+}
+
+.nav_bar ul li a:hover {
+  color: var(--secondary-colour);
+}
+
+.nav_bar ul li a::before {
+  content: "";
+  position: absolute;
+  top: 80px;
+  bottom: 30px;
+  width: 0px;
+  height: 3px;
+  background-color: var(--white-colour);
+  transition: all 0.3s;
+}
+
+.nav_bar ul li a:hover::before {
+  width: 80px;
+}
+
+.nav_bar ul li:hover .dropdown_nav {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.header .primary_btn {
+  margin-top: 40px;
+  text-transform: uppercase;
+  font-size: var(--h2-fontsize);
+  font-weight: bold;
+  color: #f4c431;
+}
+
+.header .primary_btn:hover {
+  color: #f4c431;
+}
+
+/* footer */
+
+.footer {
+  border-top-left-radius: 100px;
+  background: var(--gradient-colour);
+  padding: 20px;
+}
+
+.footer_row {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.footer_column h1 {
+  font-size: var(--h1-fontsize);
+  color: var(--white-colour);
+}
+
+.footer_column hr {
+  color: var(--white-colour);
+  width: 100px;
+}
+
+.footer_column ul li {
+  list-style: none;
+  color: var(--white-colour);
+  padding: 5px;
+}
+
+.footer_column ul li a {
+  display: flex;
+  flex-direction: column;
+  color: var(--white-colour);
+  text-transform: lowercase;
+  font-size: var(--p-fontsize);
+}
+
+.footer_column ul li a:hover {
+  color: var(--secondary-colour);
+}
+
+.footer_column form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_column input[type="email"] {
+  outline: none;
+  font-size: var(--p-fontsize);
+  padding: 10px;
+  border: none;
+  border-radius: 1.5rem;
+}
+
+.footer_column input[type="email"]:focus {
+  border: 3px solid var(--secondary-colour);
+}
+
+.footer_column input[type="submit"] {
+  font-size: var(--p-fontsize);
+  padding: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--primary-colour);
+  background-color: var(--secondary-colour);
+  border: none;
+  border-radius: 1.5rem;
+}
+
+.footer_column input[type="submit"]:hover {
+  box-shadow: 0 0 20px var(--primary-colour);
+}
+
+.footer_column p {
+  color: var(--white-colour);
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* wedding main image */
+
+.wedding_main {
+  height: 100vh;
+  display: flex;
+  background-image: url("images/wedding_main.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+
+.wedding_main h1 {
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  font-size: 80px;
+  color: VAR(--white-colour);
+  padding-left: 150px;
+  text-align: center;
+  padding-top: 300px;
+  margin-left: 190px;
+}
+
+/* wedding introduction */
+
+.wedding_intro {
+  margin-top: 40px;
+  display: flex;
+}
+
+.wedding_image img {
+  width: 550px;
+  height: 500px;
+  box-shadow: var(--box-shadow);
+  border-radius: 1.5rem;
+  animation: fadeIn 2s ease;
+}
+
+.wedding_image img:hover {
+  box-shadow: 0 0 20px var(--black-colour);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.wedding_content {
+  padding: 40px;
+  margin: 10px;
+}
+
+.wedding_content h2 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: var(--primary-colour);
+  font-weight: bold;
+  text-align: center;
+  font-size: var(--h2-fontsize);
+  padding-bottom: 40px;
+}
+
+.wedding_content p {
+  padding-bottom: 10px;
+  text-align: justify;
+  line-height: 2;
+}
+
+.wedding_content .secondary_btn {
+  padding: 20px;
+  margin-left: 250px;
+}
+
+/* types of weddings */
+
+.themes {
+  margin: 40px;
+  width: 95%;
+  background-image: linear-gradient(to bottom, transparent);
+}
+
+.themes_box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.themes_title {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: var(--h2-fontsize);
+  text-align: center;
+  background: radial-gradient(
+    circle,
+    rgba(69, 123, 157, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  color: var(--white-colour);
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.themes_subtitle {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: var(--h3-fontsize);
+  text-align: center;
+  background: radial-gradient(
+    circle,
+    rgba(233, 196, 106, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  color: var(--primary-colour);
+  font-weight: bold;
+  font-style: italic;
+}
+
+.themes_card {
+  width: 95%;
+  height: 710px;
+  background: var(--primary-colour);
+  margin-bottom: 100px;
+  box-shadow: var(--box-shadow);
+  border-radius: 1.5rem;
+}
+
+.themes_card:hover {
+  box-shadow: 0 0 20px var(--primary-colour);
+}
+
+.themes_card:nth-child(2) {
+  transform: translateY(6rem);
+}
+
+.themes_card img {
+  border-radius: 1.5rem;
+  width: 100%;
+  height: 500px;
+}
+
+.themes_image {
+  position: relative;
+}
+
+.themes_image::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 50%;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(to top, var(--primary-colour), transparent);
+}
+
+.themes_content {
+  transform: translateY(-50%);
+}
+
+.themes_content h3 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
+  font-size: var(--h3-fontsize);
+  font-weight: bolder;
+  color: var(--white-colour);
+  text-align: center;
+}
+
+.themes_content p {
+  margin: 40px;
+  color: var(--white-colour);
+  text-align: justify;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.themes_content .secondary_btn {
+  color: var(--primary-colour);
+  background-color: var(--secondary-colour);
+  margin-left: 160px;
+}
+
+.themes_content .secondary_btn:hover {
+  color: var(--secondary-colour);
+  background-color: var(--white-colour);
+}
+
+/* wedding testimonal */
+
+.wedding_testimonal {
+  /* background image for testimonal section */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(images/wedding_testimonal.jpg);
+  width: 100%;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 20px;
+}
+
+.wedding_testimonal h3 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
+  text-transform: none;
+  padding: 20px;
+  color: var(--white-colour);
+  font-size: var(--h2-fontsize);
+  font-weight: bold;
+  text-align: center;
+  padding-top: 200px;
+  font-style: italic;
+}
+
+/* media queries */
+
+/* header */
+
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+    padding: 10px 20px;
+    height: 80px;
+  }
+
+  .header .logo img {
+    margin-left: -40px;
+    width: 30px;
+  }
+
+  .nav_bar ul li {
+    margin-left: -30px;
+    padding: 20px;
+  }
+
+  .nav_bar ul li a {
+    font-size: 7px;
+  }
+
+  .nav_bar .dropdown_nav li {
+    padding: 0px;
+  }
+
+  .nav_bar .dropdown_nav li a {
+    font-size: 8px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .header .primary_btn {
+    font-size: 7px;
+    margin-top: 30px;
+  }
+}
+
+/* footer */
+
+@media (max-width: 768px) {
+  .footer_row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer_column {
+    margin-bottom: 20px;
+  }
+
+  .footer_column h1 {
+    font-size: 24px;
+  }
+
+  .footer_column ul li a {
+    font-size: 14px;
+  }
+
+  .footer_column input[type="email"] {
+    font-size: 14px;
+  }
+
+  .footer_column input[type="submit"] {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .footer_column p {
+    font-size: 14px;
+  }
+}
+
+/* wedding main image */
+
+@media screen and (max-width: 780px) {
+  .wedding_main h1 {
+    padding: 200px;
+    margin-left: -40px;
+    font-size: 30px;
+  }
+}
+
+/* wedding introduction */
+
+@media screen and (max-width: 780px) {
+  .wedding_intro {
+    flex-direction: column;
+  }
+
+  .wedding_image img {
+    width: 80%;
+    height: auto;
+  }
+
+  .wedding_content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .wedding_content h2 {
+    font-size: 24px;
+    padding-bottom: 20px;
+  }
+
+  .wedding_content .secondary_btn {
+    margin-left: -10px;
+    text-align: center;
+  }
+}
+
+/* wedding themes */
+
+@media screen and (max-width: 780px) {
+  .themes_box {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .themes_title,
+  .themes_subtitle,
+  .themes_card {
+    width: 80%;
+    text-align: center;
+  }
+
+  .themes_card {
+    width: 80%;
+    height: auto;
+  }
+
+  .themes_card:nth-child(2) {
+    transform: none;
+  }
+
+  .themes_image::after {
+    height: 30%;
+  }
+
+  .themes_content .secondary_btn {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+/* wedding testimonal */
+
+@media screen and (max-width: 780px) {
+  .wedding_testimonial {
+    margin-top: 100px;
+    width: 80%;
+    height: 500px;
+  }
+
+  .wedding_testimonial h3 {
+    font-size: 20px;
+    padding-top: 100px;
+  }
+}

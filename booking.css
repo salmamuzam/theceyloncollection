@@ -1,0 +1,1559 @@
+/* common styles defined in a root variable for reusability */
+
+:root {
+  --primary-color: #006d6f;
+  --secondary-color: #f4c431;
+  --black-color: #000000;
+  --light-green: #c8e6c9;
+  --white-color: #fff;
+  --light-yellow: #f9fbe7;
+  --dark-red: #98002e;
+  --border-radius: 1.5rem;
+  --background-gradient: linear-gradient(115deg, #f9fbe7 10%, #c8e6c9 90%);
+}
+
+/* Container to for multi step form and current booking */
+
+.big_container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Current booking container*/
+
+.booking_summary {
+  background: var(--background-gradient);
+  width: 40%;
+  margin-left: 40px;
+  margin-top: 40px;
+  text-align: center;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border: 10px groove var(--primary-color);
+}
+
+/* Multi step form container */
+
+.container {
+  background: var(--background-gradient);
+  width: 50%;
+  margin-left: 40px;
+  margin-top: 40px;
+  text-align: center;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border: 10px groove var(--primary-color);
+}
+
+/* Headings for containers */
+
+.container h2,
+.confirmation_container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bolder;
+  padding: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(
+    right,
+    #006d6f,
+    #f4c431,
+    #006d6f,
+    #f4c431
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Multi step form */
+
+.container .form-outer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.container .form-outer form {
+  display: flex;
+  width: 500%;
+}
+
+.form-outer form .page {
+  width: 20%;
+  height: fit-content;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.form_row,
+.booking_summary .form_row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Titles for containers */
+
+.form-outer form .page .title,
+.form_row h4,
+.booking_summary h4,
+.confirmation_container h4 {
+  margin-left: 20px;
+  text-decoration: 3px double underline;
+  text-align: left;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 45px;
+  font-weight: bolder;
+}
+
+.booking_summary h4 {
+  margin-top: -20px;
+}
+
+.form_row h4 {
+  margin-top: 20px;
+  text-decoration: 2px double underline;
+  text-transform: initial;
+}
+
+/* Multi step form fields */
+
+.form-outer form .page .field {
+  width: 400px;
+  height: 45px;
+  margin: 20px;
+  display: flex;
+  position: relative;
+}
+
+.booking_summary .field {
+  width: 400px;
+  height: 45px;
+  margin: 40px;
+  margin-top: 60px;
+  display: flex;
+  position: relative;
+}
+
+.booking_summary .field {
+  margin-bottom: 20px;
+}
+
+/* Multi step form labels */
+
+form .page .field .label {
+  position: absolute;
+  left: 10px;
+  padding: 15px;
+  pointer-events: none;
+  font-size: 18px;
+  color: var(--primary-color);
+  font-weight: bolder;
+  transition: 0.5s;
+}
+
+.booking_summary {
+  padding-top: 60px;
+}
+
+.booking_summary .label {
+  position: absolute;
+  margin: 30px;
+  top: -70px;
+  color: var(--primary-color);
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+/* Multi step form input  */
+
+form .page .field input:valid,
+form .page .field input:focus,
+.booking_summary .field input:focus,
+.booking_summary .field input:valid {
+  border: 2px solid var(--primary-color);
+  border-bottom-width: 5px;
+}
+
+form .page .field input,
+.booking_summary .field input {
+  width: 100%;
+  padding: 25px;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  outline: none;
+  color: var(--black-color);
+  background: linear-gradient(115deg, #f9fbe7 90%, #c8e6c9 10%);
+  border-bottom-width: 5px;
+  font-size: 18px;
+}
+
+form .page .field input:valid ~ .label,
+form .page .field input:focus ~ .label {
+  color: var(--black-color);
+  transform: translateX(10px) translateY(-7px);
+  font-size: 16px;
+  font-weight: bolder;
+  padding: 0 10px;
+  background: var(--light-green);
+  border-right: 2px solid var(--light-green);
+  border-left: 2px solid var(--light-green);
+  letter-spacing: 0.2em;
+}
+
+/* Error messages for validation */
+
+.error {
+  color: red;
+  font-size: 14px;
+  font-style: italic;
+  position: absolute;
+  margin-top: 60px;
+}
+
+/* Select Options in Forms */
+
+select {
+  outline: none !important;
+  color: red;
+}
+
+form .page .field select {
+  width: 100%;
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+/* Styles for buttons */
+
+form .page .field button,
+.form_row #bookNow,
+.form_row #bookAdventure,
+.form_row .prev {
+  width: 280px;
+  height: 50px;
+  border: 2px var(--black-color);
+  box-shadow: var(--black-color) 4px 4px 0 0;
+  background: var(--primary-color);
+  margin-top: 5px;
+  border-radius: var(--border-radius);
+  color: var(--white-color);
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 60px;
+  margin-top: 40px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+
+.booking_summary #loyaltyBtn,
+.booking_summary #addFavourites {
+  width: 1000px;
+  margin-left: 20px;
+  border: 2px solid var(--black-color);
+  box-shadow: var(--black-color) 4px 4px 0 0;
+  background: var(--primary-color);
+  border-radius: 1.5rem;
+  color: var(--white-color);
+  cursor: pointer;
+  font-size: 14px;
+  height: 50px;
+  margin-top: 20px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+
+form .page .field button:hover,
+.booking_summary #loyaltyBtn:hover,
+.form_row .prev:hover,
+.form_row #bookNow:hover,
+.form_row #bookAdventure:hover,
+.booking_summary #addFavourites:hover {
+  background: var(--secondary-color);
+  color: var(--black-color);
+  font-weight: bold;
+  transform: translateY(-2px);
+}
+
+form .page .btns button {
+  margin-top: 10px !important;
+  margin-left: 90px;
+}
+
+form .page .btns button.prev {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+form .page .btns button.next {
+  margin-top: -100px;
+  margin-left: 3px;
+}
+
+/* Progress bar */
+
+.container .progress-bar {
+  display: flex;
+  padding: 20px;
+  user-select: none;
+  margin-bottom: 10px;
+}
+
+.container .progress-bar .step {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.container .progress-bar .step p {
+  font-weight: bold;
+  font-size: 25px;
+  padding-right: 40px;
+  font-style: italic;
+  color: var(--black-color);
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.progress-bar .step .bullet {
+  height: 50px;
+  width: 50px;
+  border: 3px solid var(--black-color);
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  margin-right: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.progress-bar .step .bullet.active {
+  border-color: var(--secondary-color);
+  background: var(--secondary-color);
+}
+
+.progress-bar .step .bullet span {
+  font-size: 18px;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+}
+
+.progress-bar .step .bullet.active span {
+  display: none;
+}
+
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after {
+  position: absolute;
+  content: "";
+  top: 25px;
+  right: -175px;
+  height: 3px;
+  width: 174px;
+  background: #262626;
+}
+
+.progress-bar .step .bullet.active:after {
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after {
+  display: none;
+}
+
+.progress-bar .step p.active {
+  color: var(--primary-color);
+  transition: 0.2s linear;
+}
+
+.progress-bar .step .check {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 40px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.progress-bar .step .check.active {
+  display: block;
+  color: var(--white-color);
+}
+
+/* Select styles */
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 1.5rem;
+  border-bottom-width: 5px;
+  background: linear-gradient(115deg, #f9fbe7 90%, #c8e6c9 10%);
+  background-image: none;
+  flex: 1;
+  padding: 25px;
+  padding: 0 0.5em;
+  color: var(--primary-color);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 18px;
+  margin: 20px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.select {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  height: 54px;
+  line-height: 3;
+  border-radius: var(--border-radius);
+  background: linear-gradient(115deg, #f9fbe7 90%, #c8e6c9 10%);
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100px;
+  border-radius: 20%;
+  padding: 0 1em;
+  color: var(--light-green);
+  background: var(--primary-color);
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.25s all ease;
+}
+
+.select:hover::after {
+  color: var(--secondary-color);
+}
+
+.select option {
+  background: var(--light-yellow);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Checkbox and radio button */
+
+.tile {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  height: 180px;
+  width: 400px;
+  position: relative;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-top: 20px;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(115deg, #f9fbe7 90%, #c8e6c9 10%);
+  border-radius: 1.5rem;
+  cursor: pointer;
+  border: 3px solid var(--primary-color);
+  border-bottom-width: 5px;
+  outline: none;
+  box-shadow: 15px 15px 25px rgba(2, 28, 53, 0.05);
+}
+
+input[type="radio"]:after,
+input[type="checkbox"]:after {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f111";
+  font-size: 22px;
+  top: 10px;
+  left: 10px;
+  color: var(--primary-color);
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
+  transform: scale(1.08);
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  border: 3px solid var(--primary-color);
+  border-bottom-width: 5px;
+}
+
+input[type="checkbox"]:checked:after,
+input[type="radio"]:checked:after {
+  font-weight: 900;
+  content: "\f058";
+  color: var(--secondary-color);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 80%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+}
+
+label .fas {
+  font-size: 60px;
+  color: var(--primary-color);
+}
+
+input[type="checkbox"]:checked + label .fas,
+input[type="radio"]:checked + label .fas {
+  animation: grow 0.5s;
+}
+
+@keyframes grow {
+  50% {
+    font-size: 80px;
+  }
+}
+
+label h5 {
+  font-size: 20px;
+  font-weight: BOLD;
+  color: var(--primary-color);
+}
+
+/* Hide default date label */
+
+input[type="date"]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+
+input[type="date"]:focus::-webkit-datetime-edit {
+  color: var(--black-color) !important;
+}
+
+/* Overall booking table */
+
+.confirmation_container .table {
+  width: 98%;
+  margin-left: 20px;
+  height: 100px;
+}
+
+.confirmation_container .table td,
+.confirmation_container .table th {
+  border: 3px solid var(--black-color);
+  text-align: center;
+  font-size: 16px;
+}
+
+.table {
+  border: 2px solid #ddd;
+  border-collapse: collapse;
+  margin: 20px;
+  width: 90%;
+  table-layout: fixed;
+}
+
+.table th {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.table tr {
+  background-color: var(--light-yellow);
+  border: 2px solid var(--primary-color);
+  color: var(--black-color);
+  padding: 0.35em;
+}
+
+.table th,
+.table td {
+  padding: 0.625em;
+  text-align: center;
+}
+
+.table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+section {
+  margin: 40px;
+  min-height: 100vh;
+  border-radius: 1.5rem;
+  width: 93%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overall booking container */
+
+.confirmation_container {
+  margin: 40px;
+  width: 93%;
+  padding: 20px;
+  border-radius: 8px;
+  border-radius: 1.5rem;
+  border: 10px groove var(--primary-color);
+  background: var(--background-gradient);
+}
+
+.multi {
+  display: none;
+}
+
+.multi.active {
+  display: block;
+}
+
+/* Styles for buttons */
+
+button.btn-continue,
+button.btn-back,
+button.btn-confirm {
+  float: right;
+  margin-top: -60px;
+  padding: 20px;
+  border: none;
+  margin-right: 80px;
+  margin-left: 40px;
+  color: var(--white-color);
+  outline: none;
+  background-color: var(--primary-color);
+  font-size: 18px;
+  border-radius: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid var(--black-color);
+  box-shadow: var(--black-color) 4px 4px 0 0;
+  background: var(--primary-color);
+}
+
+button.btn-back {
+  float: left;
+  border: 2px solid var(--black-color);
+  box-shadow: var(--black-color) 4px 4px 0 0;
+  background: var(--primary-color);
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+}
+
+/* Payment form */
+
+.ui {
+  box-shadow: 0 0 10´x 0 rgba(149, 184, 209, 0.5);
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -100px;
+}
+
+.container-left {
+  width: 50%;
+}
+
+.container-right {
+  width: 50%;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  width: 1500px;
+  height: 430px;
+  padding-left: 20px;
+  background: linear-gradient(
+    45deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 140, 177, 1) 35%,
+    rgba(0, 29, 125, 1) 100%
+  );
+  border: 5px solid rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+}
+
+.intern {
+  padding: 20px;
+}
+
+.approximation {
+  width: 80px;
+  transform: rotate(90deg);
+}
+
+.chip {
+  height: 70px;
+  position: relative;
+  left: 87%;
+  bottom: 20px;
+}
+
+.card-number {
+  margin-top: 10px;
+  font-size: 18px;
+  color: var(--white-color);
+}
+
+.card-holder {
+  color: whitesmoke;
+}
+
+.card label {
+  font-size: 0.7rem;
+}
+
+.card-infos {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  color: var(--white-color);
+}
+
+#credit-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 1.1rem;
+  color: var(--white-color);
+  text-transform: uppercase;
+}
+
+.number-container,
+.name-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.expiration-container,
+.cvv-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.number-vl,
+.name-vl,
+.expiration-vl,
+.cvv-vl {
+  font-size: 18px;
+  padding: 10px;
+}
+
+.ui input {
+  border: 2px solid var(--primary-color);
+  border-bottom-width: 5px;
+  border-radius: 1.5rem;
+  padding: 20px;
+  margin: 20px;
+  background: linear-gradient(115deg, #f9fbe7 90%, #c8e6c9 10%);
+  color: var(--black-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+  outline: 0;
+  width: 600px;
+}
+
+.ui label {
+  color: var(--white-color);
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+}
+
+.ui .label {
+  color: var(--white-color);
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: -180px;
+}
+
+.ui .label_1 {
+  margin-left: -215px;
+  color: var(--white-color);
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.ui input[type="text"]:focus {
+  border: 2px solid var(--black-color);
+  border-bottom-width: 5px;
+}
+
+.ui input#valid-thru-text,
+input#cvv-text {
+  width: 80%;
+}
+
+.ui input[type="submit"] {
+  width: 95%;
+  background: var(--primary-color);
+  border: 2px solid var(--black-color);
+  box-shadow: var(--black-color) 4px 0 0;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.infos-container {
+  display: flex;
+}
+
+.hero img {
+  border-radius: 1.5rem;
+  width: 100%;
+  margin: 0px;
+}
+
+.text-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.text-content p.subtitle {
+  color: var(--black-color);
+  font-weight: bold;
+  margin: 80px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+/* Total container for overall booking */
+
+.plan-box {
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  width: 500px;
+  margin-left: 40px;
+  margin-top: -30px;
+  margin-bottom: 80px;
+  padding: 20px;
+  padding-right: 1260px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plan-box-left {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.plan-box-left img {
+  width: 100px;
+}
+
+.plan-box-left div {
+  margin-left: 20px;
+}
+
+.plan-box-left div h5 {
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--white-color);
+}
+
+.plan-box-left div p {
+  font-size: 20px;
+  color: var(--white-color);
+}
+
+.plan-box a {
+  font-weight: 900;
+  color: hsl(223, 47%, 23%);
+  transition: color 0.3s ease;
+}
+
+.plan-box a:hover {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+/* Adventure popup */
+
+.popup {
+  width: 400px;
+  background: var(--light-yellow);
+  border-radius: var(--border-radius);
+  position: absolute;
+  top: 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  left: 30%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: transform 0.2s, top 4s;
+}
+
+.open-popup {
+  visibility: visible;
+  top: 300%;
+  transform: translate(-10%, -140%);
+}
+
+.popup img {
+  width: 100px;
+  margin-top: -50px;
+  border-radius: 50%;
+}
+
+.popup p {
+  text-align: left;
+  font-size: 18px;
+  color: var(--black-color);
+  line-height: 2rem;
+}
+
+.popup h3 {
+  font-size: 25px;
+  color: black;
+  margin: 20px;
+  font-weight: bold;
+}
+
+.ok_button {
+  background: var(--primary-color);
+  outline: none;
+  font-weight: bold;
+  color: var(--white-color);
+  width: 300px;
+  margin-top: 20px;
+  border-radius: 1.5rem;
+  padding: 10px 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ok_button:hover {
+  background: var(--secondary-color);
+  font-weight: bold;
+  color: var(--black-color);
+}
+
+/* Overall booking accordion */
+
+.accordion {
+  width: 98%;
+  background: transparent;
+  margin: 0 15px;
+  margin-bottom: 50px;
+  padding: 17px;
+  border-radius: 8px;
+}
+
+.accordion .accordion-content {
+  margin: 10px 0;
+  border-radius: 1.5rem;
+  background: var(--light-green);
+  border: 2px solid var(--primary-color);
+  overflow: hidden;
+}
+
+.accordion-content.open {
+  padding-bottom: 10px;
+}
+
+.accordion-content header {
+  display: flex;
+  min-height: 50px;
+  padding: 0 15px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s linear;
+}
+
+.accordion-content.open header {
+  min-height: 35px;
+}
+
+.accordion-content header .title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.accordion-content header i {
+  font-size: 18px;
+  color: #333;
+}
+
+.accordion-content .table {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.2s linear;
+}
+
+.accordion-content.open .table {
+  height: auto;
+}
+
+.accordion-content .table {
+  display: none;
+}
+
+/* Current booking tabbed interface */
+
+.current_container {
+  margin: 20px;
+  width: 90%;
+  background: var(--light-green);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+}
+
+.current_container hr {
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.current_wrapper {
+  display: flex;
+}
+
+.indicator {
+  padding: 1.5rem 0;
+  border-right: 2px solid var(--primary-color);
+}
+
+.indicator li {
+  display: flex;
+  padding: 10px 2rem;
+  grid-gap: 0.5rem;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--black-color);
+  font-weight: bold;
+  border-right: 3px solid transparent;
+}
+
+.indicator li i {
+  font-size: 14px;
+  text-align: left;
+}
+
+.indicator li:hover {
+  background: var(--light-yellow);
+}
+
+.indicator li.active {
+  border-right-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  background: var(--light-yellow);
+}
+
+.current_content {
+  padding: 1.5rem 2rem;
+}
+
+.current_content li {
+  display: none;
+}
+
+.current_content li.active {
+  display: block;
+}
+
+.current_content li h1 {
+  font-size: 20px;
+  text-decoration: double underline;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: left;
+  margin-bottom: 0.75rem;
+}
+
+.current_content li p {
+  margin-bottom: 0.5rem;
+  text-align: left;
+  color: var(--black-color);
+  font-size: 14px;
+}
+
+/* Confirmation modal popup */
+
+.modal-container {
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--light-green);
+  width: 550px;
+  max-width: 100%;
+  border-radius: 1.5rem;
+}
+
+.modal-header {
+  display: flex;
+  background: var(--primary-color);
+  color: var(--white-color);
+  padding: 20px 15px;
+  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content img {
+  display: block;
+  width: 25%;
+  margin: 10px auto;
+}
+
+.modal-content {
+  padding: 20px 15px;
+  line-height: 2rem;
+  text-align: justify;
+}
+
+.modal-footer {
+  border-top: 2px solid var(--primary-color);
+  padding: 20px 15px;
+}
+
+.modal-footer .btn-close {
+  display: block;
+  margin-left: auto;
+  background: transparent;
+  color: var(--primary-color);
+  padding: 10px 30px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  outline: 2px solid var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.modal-header i {
+  cursor: pointer;
+}
+
+.modal-footer .btn-close:hover {
+  background: var(--primary-color);
+  transition: all 0.3s;
+  color: var(--white-color);
+}
+
+/* Add to favourites button effect */
+
+.fav_btn {
+  position: relative;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  color: var(--white-color);
+  cursor: pointer;
+  background-color: var(--dark-red);
+  transition: all 5s ease;
+}
+.fav_btn:active {
+  transform: scale(0.96);
+}
+.fav_btn:before,
+.fav_btn:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+.fav_btn.animate::before {
+  top: -70%;
+  background-image: radial-gradient(
+      circle,
+      var(--dark-red) 20%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle,
+      transparent 20%,
+      var(--dark-red) 20%,
+      transparent 30%
+    ),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%),
+    radial-gradient(
+      circle,
+      transparent 10%,
+      var(--dark-red) 15%,
+      transparent 20%
+    ),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  animation: redBubbles ease-in-out 0.6s forwards infinite;
+}
+@keyframes redBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+.fav_btn.animate::after {
+  bottom: -70%;
+  background-image: radial-gradient(
+      circle,
+      var(--dark-red) 20%,
+      transparent 20%
+    ),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%),
+    radial-gradient(
+      circle,
+      transparent 10%,
+      var(--dark-red) 15%,
+      transparent 20%
+    ),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%),
+    radial-gradient(circle, var(--dark-red) 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  animation: redBubbles1 ease-in-out 0.6s forwards infinite;
+}
+@keyframes redBubbles1 {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+/* Toast Notification for add to favourites button */
+
+.wrapper {
+  width: 420px;
+  padding: 30px 20px;
+  position: absolute;
+  top: 1200px;
+  right: 0;
+  overflow: hidden;
+}
+
+#toast {
+  width: 380px;
+  height: 80px;
+  padding: 20px;
+  background-color: var(--white-color);
+  box-shadow: 0 10px 20px rgba(75, 50, 50, 0.05);
+  border-left: 8px solid var(--dark-red);
+  border-radius: var(--border-radius);
+  display: grid;
+  grid-template-columns: 1.2fr 6fr 0.5fr;
+  transform: translate(400px);
+  transition: 1s;
+}
+.container-1,
+.container-2 {
+  align-self: center;
+}
+.container-1 i {
+  font-size: 40px;
+  color: var(--dark-red);
+}
+.container-2 p {
+  color: var(--dark-red);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#toast button {
+  align-self: flex-start;
+  background-color: transparent;
+  font-size: 30px;
+  line-height: 0;
+  color: var(--dark-red);
+  cursor: pointer;
+}
+
+/* Mobile responsiveness for booking page */
+
+@media screen and (max-width: 768px) {
+  .big_container {
+    flex-direction: column;
+  }
+
+  .booking_summary {
+    width: 80%;
+  }
+
+  .container,
+  .confirmation_container {
+    width: 80%;
+  }
+
+  .container h2,
+  .confirmation_container h2 {
+    font-size: 25px;
+  }
+
+  .container .form-outer {
+    width: 80%;
+  }
+
+  form .page .field input,
+  .booking_summary .field input {
+    width: 40%;
+  }
+
+  .form_row,
+  .booking_summary .form_row {
+    flex-direction: column;
+  }
+
+  form .page .field .label {
+    font-size: 14px;
+  }
+
+  .error {
+    font-size: 10px;
+  }
+
+  form .page .field input:valid ~ .label,
+  form .page .field input:focus ~ .label {
+    font-size: 12px;
+  }
+  .form-outer form .page .title,
+  .form_row h4,
+  .booking_summary h4,
+  .confirmation_container h4 {
+    font-size: 20px;
+  }
+
+  .container .progress-bar {
+    padding: 10px;
+  }
+  .container .progress-bar .step p {
+    font-size: 10px;
+    padding-right: 10px;
+  }
+
+  .progress-bar .step .bullet {
+    height: 25px;
+    width: 25px;
+    font-size: 14px;
+  }
+
+  .progress-bar .step .bullet span {
+    top: 0%;
+    font-size: 14px;
+  }
+
+  .progress-bar .step .bullet:before,
+  .progress-bar .step .bullet:after {
+    top: 10px;
+    right: -50px;
+    width: 50px;
+  }
+
+  form .page .field button,
+  .form_row #bookNow,
+  .form_row #bookAdventure,
+  .form_row .prev {
+    width: 150px;
+  }
+
+  .booking_summary #loyaltyBtn,
+  .booking_summary #addFavourites {
+    width: 150px;
+  }
+
+  .plan-box {
+    width: 100px;
+    padding-right: 200px;
+  }
+
+  .ui {
+    flex-direction: column;
+  }
+
+  .ui input {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+  }
+
+  .tile {
+    width: 150px;
+  }
+
+  .select {
+    width: 160px;
+    font-size: 14px;
+  }
+  .ui label {
+    font-size: 14px;
+  }
+
+  .card {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .table {
+    border: 0;
+  }
+
+  .table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  .table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .current_wrapper {
+    flex-direction: column;
+  }
+
+  .current_indicator {
+    border-right: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .ui {
+    flex-direction: column;
+  }
+
+  .container-left,
+  .container-right {
+    width: 100%;
+  }
+}

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> Boutique Hotels in Sri Lanka | The Ceylon Collection </title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="booking.css">
+   <link rel="stylesheet" href="normalize.css">
+   <script src="script.js" defer></script>
+   <script src="booking.js" defer> </script>
+   <script src="validation.js" defer> </script>
+   <link rel="apple-touch-icon" sizes="180x180" href="web manifest/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="web manifest/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="web manifest/favicon-16x16.png">
+   <link rel="manifest" href="web manifest/site.webmanifest">
+   <link rel="mask-icon" href="web manifest/safari-pinned-tab.svg" color="#5bbad5">
+   <meta name="msapplication-TileColor" content="#da532c">
+   <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+
+   <!-- fixed header containing logo which links to the home page on click, navigation links and a call to action button for booking -->
+
+   <header class="header">
+
+      <a href="index.html">
+         <figure class="logo">
+            <img src="images/logo.jpg" alt="The Ceylon Collection Logo">
+         </figure>
+      </a>
+
+      <nav class="nav_bar">
+         <ul>
+            <li> <a href="index.html"> Home </a> </li>
+            <li> <a href="branches.html"> Branches </a> </li>
+            <li> <a href="adventures.html"> Adventures </a> </li>
+            <li> <a href="restaurants.html"> Restaurants &#x25BE; </a>
+
+               <!-- a drop down navigation menu linking to two event pages, wedding and meeting -->
+
+               <ul class="dropdown_nav">
+                  <li> <a href="wedding.html"> Weddings </a> </li>
+                  <li> <a href="meeting.html"> Meetings </a> </li>
+               </ul>
+            </li>
+         </ul>
+      </nav>
+
+      <a class="primary_btn" href="booking.html"> Book Now </a>
+
+   </header>
+
+   <main>
+
+      <!-- main image for booking page -->
+
+      <div class="booking_main">
+         <h1> Bookings </h1>
+      </div>
+
+      <!-- Multi Step form which includes forms for guest, room and adventure booking. -->
+
+      <div class="big_container">
+         <div class="container">
+            <h2> Booking Form </h2>
+            <!-- Progress bar for multi step form -->
+            <div class="progress-bar">
+               <div class="step">
+                  <p> Guest </p>
+                  <div class="bullet"><span>1</span></div>
+                  <div class="check fas fa-check"></div>
+               </div>
+               <div class="step">
+                  <p> Room </p>
+                  <div class="bullet"><span>2</span></div>
+                  <div class="check fas fa-check"></div>
+               </div>
+               <div class="step">
+                  <p> Adventure </p>
+                  <div class="bullet"><span>3</span></div>
+                  <div class="check fas fa-check"></div>
+               </div>
+            </div>
+            <div class="form-outer">
+               <form id="form" onsubmit="return validateForm()">
+                  <!-- Guest Information -->
+                  <div class="page slide-page" id="page_1">
+                     <div class="title"> Guest Information&#58; </div>
+                     <div class="form_row">
+                        <div class="field">
+                           <input type="text" required="required" id="firstName">
+                           <div class="label">First Name</div>
+                           <div class="error" id="firstNameError"> </div>
+                        </div>
+
+                        <div class="field">
+                           <input type="text" required="required" id="lastName">
+                           <div class="label">Last Name</div>
+                           <div class="error" id="lastNameError"> </div>
+                        </div>
+                     </div>
+
+                     <div class="form_row">
+                        <div class="field">
+                           <input type="email" required="required" id="email">
+                           <div class="label"> Email </div>
+                           <div class="error" id="emailError"> </div>
+                        </div>
+
+                        <div class="field">
+                           <input type="tel" required="required" id="contactNumber" maxlength="10">
+                           <div class="label"> Contact Number </div>
+                           <div class="error" id="contactError"> </div>
+                        </div>
+                     </div>
+
+                     <div class="form_row">
+                        <div class="field">
+                           <input type="text" required="required" id="address">
+                           <div class="label"> Address </div>
+                           <div class="error" id="addressError"> </div>
+                        </div>
+
+                        <div class="field">
+                           <input type="text" required="required" id="city">
+                           <div class="label"> City </div>
+                           <div class="error" id="cityError"> </div>
+                        </div>
+                     </div>
+
+                     <div class="form_row">
+                        <div class="field">
+                           <input type="date" required="required" id="checkIn" onchange="updateCheckOutMin()">
+                           <div class="label"> Check In </div>
+                           <div class="error" id="checkInError"> </div>
+
+                        </div>
+
+                        <div class="field">
+                           <input type="date" required="required" id="checkOut" onchange="updateCheckInMax()">
+                           <div class="label"> Check Out </div>
+                           <div class="error" id="checkOutError"> </div>
+                        </div>
+                     </div>
+                     <!-- Button to navigate to the next page -->
+                     <div class="field">
+                        <button class="firstNext next" id="next1" onclick="validateForm(event)">Next &#11162;</button>
+                     </div>
+                  </div>
+                  <!-- Room Information -->
+                  <div class="page">
+                     <div class="title"> Room Information&#58; </div>
+                     <div class="form_row">
+                        <div class="select">
+                           <select name="select" id="selectBranch">
+                              <option hidden> Select Branch </option>
+                              <option value="Nuwara Eliya" id="nuwaraEliya"> Nuwara Eliya </option>
+                              <option value="Tissamaharama" id="tissa"> Tissamaharama </option>
+                              <option value="Galle" id="galle"> Galle </option>
+                           </select>
+                        </div>
+                        <div class="error" id="branchError"> </div>
+                        <div class="select">
+                           <select name="Room Choice" id="selectRoom">
+                              <option hidden> Room Choice </option>
+                              <option value="Single" id="singleRoom"> Single </option>
+                              <option value="Double" id="doubleRoom"> Double </option>
+                              <option value="Triple" id="tripleRoom"> Triple </option>
+                           </select>
+                        </div>
+                        <div class="error" id="roomChoiceError"> </div>
+                     </div>
+                     <div class="form_row">
+                        <div class="field">
+                           <input type="Number" id="noOfRooms" required="required" min="1" max="10">
+                           <div class="label"> Number of rooms </div>
+                           <div class="error" id="roomNoError"> </div>
+                        </div>
+                        <div class="field">
+                           <input type="Number" id="extraBed" required="required" min="0" max="10">
+                           <div class="label"> Extra Bed (If required) </div>
+                           <div class="error" id="extraBedError"> </div>
+                        </div>
+                     </div>
+                     <div class="form_row">
+                        <div class="field">
+                           <input type="Number" id="noOfAdults" required="required" min="1" max="20">
+                           <div class="label"> Number of Adults</div>
+                           <div class="error" id="noOfAdultsError"> </div>
+                        </div>
+                        <div class="field">
+                           <input type="Number" id="noOfChildren" required="required" min="0" max="10">
+                           <div class="label"> Number of Children </div>
+                           <div class="error" id="noOfChildrenError"> </div>
+                        </div>
+                     </div>
+                     <div class="form_row">
+                        <div class="field">
+                           <input type="Number" id="kidsMeal" required="required" min="0" max="10">
+                           <div class="label"> Kids Meal </div>
+                           <div class="error" id="kidsMealError"> </div>
+                        </div>
+                        <div class="field">
+                           <input type="number" id="duration" required="required" min="1" max="30">
+                           <div class="label"> Duration of Stay </div>
+                           <div class="error" id="durationError"> </div>
+                        </div>
+                     </div>
+                     <div class="form_row">
+                        <H4> Extra Requirements </H4>
+                     </div>
+                     <div class="form_row">
+                        <div class="tile">
+                           <input type="checkbox" name="wifi" id="wifi">
+                           <label for="wifi">
+                              <i class="fas fa-wifi"></i>
+                              <h5> WiFi </h5>
+                           </label>
+                        </div>
+                        <div class="tile">
+                           <input type="radio" name="view" id="pool">
+                           <label for="pool">
+                              <i class="fas fa-swimming-pool"></i>
+                              <h5> Pool View </h5>
+                           </label>
+                        </div>
+                        <div class="tile">
+                           <input type="radio" name="view" id="garden">
+                           <label for="garden">
+                              <i class="fas fa-tree"></i>
+                              <h5> Garden View </h5>
+                           </label>
+                        </div>
+                     </div>
+                     <div class="field btns">
+                        <!-- Button to navigate to the previous page -->
+                        <button class="prev-1 prev">Previous &#11160;</button>
+                        <!-- Button to navigate to the next page -->
+                        <button class="next-1 next" onclick="validateForm1(event)">Next &#11162;</button>
+                     </div>
+                  </div>
+                  <!-- Adventure Information -->
+                  <div class="page">
+                     <div class="title"> Adventure Information&#58; </div>
+                     <div class="form_row">
+                        <div class="select">
+                           <select name="Select Adventure" id="selectAdventure">
+                              <option hidden> Choose Adventure </option>
+                              <option value="Hiking" id="hiking"> Hiking </option>
+                              <option value="Horse Riding" id="horseRiding"> Horse Riding </option>
+                              <option value="Jungle Safari" id="jungleSafari"> Jungle Safari </option>
+                              <option value="River Safari" id="riverSafari"> River Safari </option>
+                              <option value="Bird Watching" id="birdWatching"> Bird Watching </option>
+                              <option value="Whale & Dolphin Watching" id="whaleAndDolphinWatching"> Whale & Dolphin
+                                 Watching </option>
+                           </select>
+                           <div class="error" id="adventureSelectError"> </div>
+                        </div>
+                     </div>
+                     <div class="form_row">
+                        <div class="field">
+                           <input type="number" id="localAdults" required="required" min="0" max="10">
+                           <div class="label"> Local Adults </div>
+                           <div class="error" id="localAdultsError"> </div>
+                        </div>
+                        <div class="field">
+                           <input type="number" id="localKids" required="required" min="0" max="10">
+                           <div class="label"> Local Kids </div>
+                           <div class="error" id="localKidsError"> </div>
+                        </div>
+                     </div>
+                     <div class="form_row">
+                        <div class="field">
+                           <input type="Number" id="foreignAdults" required="required" min="0" max="10">
+                           <div class="label"> Foreign Adults </div>
+                           <div class="error" id="foreignAdultsError"> </div>
+                        </div>
+                        <div class="field">
+                           <input type="number" id="foreignKids" required="required" min="0" max="10">
+                           <div class="label"> Foreign Kids </div>
+                           <div class="error" id="foreignKidsError"> </div>
+                        </div>
+                     </div>
+                     <div class="form_row">
+                        <H4> Need a Guide? </H4>
+                     </div>
+                     <div class="form_row">
+                        <div class="tile">
+                           <input type="checkbox" name="Guide" id="adultGuide">
+                           <label for="adultGuide">
+                              <i class="fas fa-female"> </i>
+                              <h5> Adults </h5>
+                           </label>
+                        </div>
+                        <div class="tile">
+                           <input type="checkbox" name="Guide" id="kidGuide">
+                           <label for="kidGuide">
+                              <i class="fas fa-baby"> </i>
+                              <h5> Kids </h5>
+                           </label>
+                        </div>
+                     </div>
+                     <div class="form_row">
+                        <button class="prev-2 prev">Previous &#11160;</button>
+
+                        <button id="bookNow" class="book_now" onclick="validateAdventureForm(event)"> Book Now </button>
+
+                        <div class="modal_container">
+                           <button type="submit" class="adventure-btn" id="bookAdventure" onclick="openPopup()"> Book
+                              Adventure </button>
+                           <div id="backdrop" class="backdrop"></div>
+                           <div class="popup" id="popup">
+                              <img src="images/adventure-tick.png" alt="Check Mark">
+                              <h3> Adventure Booking </h3>
+                              <div class="bookadventure_popup" id="bookAdventurePopup">
+                                 <p> Thank you for booking <span id="adventureNamePlaceholder"></span></p>
+                                 <p> Your details are as follows : </p>
+                                 <p> &#8226; Local Adult: <span id="localAdultsPlaceholder"></span></p>
+                                 <p> &#8226; Local Kid: <span id="localKidsPlaceholder"></span></p>
+                                 <p> &#8226; Foreign Adult: <span id="foreignAdultsPlaceholder"></span></p>
+                                 <p> &#8226; Foreign Kid: <span id="foreignKidsPlaceholder"></span></p>
+                                 <p> &#8226; Adult Guide: <span id="adultGuidePlaceholder"></span></p>
+                                 <p> &#8226; Kid Guide: <span id="kidGuidePlaceholder"></span></p>
+                              </div>
+                              <button type="button" class="ok_button" onclick="closePopup()"> OK </button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+            </div>
+            </form>
+         </div>
+
+         <div class="booking_summary">
+            <!-- Tabbed Interface to display current guest, room and adventure information after clicking the book now button -->
+            <h4> Current Booking </h4>
+            <div class="current_container">
+               <div class="current_wrapper">
+                  <ul class="indicator">
+                     <li class="current_active" data-target="#guest1"> Guest &#xbb; </li>
+                     <li data-target="#room1">Room &#xbb; </li>
+                     <li data-target="#adventure1">Adventure &#xbb; </li>
+                     <li data-target="#total1"> Total &#xbb; </li>
+                  </ul>
+                  <ul class="current_content">
+                     <li class="current_active" id="guest1">
+                        <h1> Guest Details </h1>
+                        <div id="currentGuestDetails">
+                           <p> &#8226; First Name : </p>
+                           <p> &#8226; Last Name : </p>
+                           <p> &#8226; Email : </p>
+                           <p> &#8226; Contact Number : </p>
+                           <p> &#8226; Address : </p>
+                           <p> &#8226; City : </p>
+                           <p> &#8226; Check In : </p>
+                           <p> &#8226; Check Out : </p>
+                        </div>
+                     </li>
+                     <li id="room1">
+                        <h1> Room Details </h1>
+                        <div id="currentRoomDetails">
+                           <p> &#8226; Branch Name : </p>
+                           <p> &#8226; Room Choice : </p>
+                           <p> &#8226; No of Rooms : </p>
+                           <p> &#8226; Extra Bed : </p>
+                           <p> &#8226; No of Adults : </p>
+                           <p> &#8226; No of Children : </p>
+                           <p> &#8226; Kids Meal : </p>
+                           <p> &#8226; Duration of Stay : </p>
+                           <p> &#8226; WiFi : </p>
+                           <p> &#8226; Pool View : </p>
+                           <p> &#8226; Garden View : </p>
+                        </div>
+                     </li>
+                     <li id="adventure1">
+                        <h1> Adventure Details </h1>
+                        <div id="currentAdventureDetails">
+                           <p> &#8226; Adventure Name : </p>
+                           <p> &#8226; Local Adult : </p>
+                           <p> &#8226; Local Kid :</p>
+                           <p> &#8226; Foreign Adult : </p>
+                           <p> &#8226; Foreign Kid :</p>
+                           <p> &#8226; Adult Guide :</p>
+                           <p> &#8226; Kid Guide : </p>
+                        </div>
+                     </li>
+                     <li id="total1">
+                        <h1> Total </h1>
+                        <div id="currentRoomCost">
+                           <p> Room Cost : Rs. 0 </p>
+                        </div>
+                        <div id="currentAdventureCost">
+                           <p>Adventure Cost : Rs. 0 </p>
+                        </div>
+                        <hr>
+                        <div id="totalCurrentCost">
+                           <p> Current Cost : Rs. 0 </p>
+                        </div>
+                  </ul>
+               </div>
+            </div>
+            <hr>
+            <div class="form_row">
+               <!-- Field to enter promo code -->
+               <div class="field">
+                  <input type="text" required="required" id="promoCode">
+                  <div class="label"> Promo Code </div>
+               </div>
+            </div>
+            <div class="form_row">
+               <!-- Field to display loyalty points -->
+               <div class="field">
+                  <input type="text" required="required" id="loyaltyPoints" readonly>
+                  <div class="label"> Loyalty Points </div>
+               </div>
+            </div>
+            <div class="form_row">
+               <!-- Button to check loyalty points -->
+               <button id="loyaltyBtn"> Check Loyalty Points </button>
+               <!-- Button to add booking to favourites -->
+               <div class="wrapper">
+                  <div id="toast">
+                     <div class="container-1">
+                        <i class="fa fa-heart"></i>
+                     </div>
+                     <div class="container-2">
+                        <p> Added to favourites! </p>
+                     </div>
+                     <button id="close" onclick="closeToast()">
+                        &times;
+                     </button>
+                  </div>
+               </div>
+               <button id="addFavourites" class="fav_btn animate" onclick="showToast()"> &#10084; Add to Favourites
+               </button>
+            </div>
+         </div>
+      </div>
+      </div>
+      <!-- Multi step form which includes the overall summary section, the payment section and a thank you message which displays on a pop up after clicking confirm. -->
+      <div class="confirmation_container">
+         <form>
+            <div class="multi step-one active">
+               <!-- Accordion form which has tables to display overall guest, room, adventure. -->
+               <h2> Booking Summary </h2>
+               <h4> Overall Booking </h4>
+               <div class="accordion">
+                  <div class="accordion-content">
+                     <header>
+                        <span class="title"> Guest Details </span>
+                        <i class="fa-solid fa-plus"></i>
+                     </header>
+                     <table class="table" id="overallGuestTable">
+                        <thead>
+                           <tr>
+                              <th> First Name </th>
+                              <th> Last Name </th>
+                              <th> Email </th>
+                              <th> Contact Number </th>
+                              <th> Address </th>
+                              <th> Check In </th>
+                              <th> Check Out </th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="accordion-content">
+                     <header>
+                        <span class="title"> Room Details </span>
+                        <i class="fa-solid fa-plus"></i>
+                     </header>
+                     <table class="table" id="overallRoomTable">
+                        <thead>
+                           <tr>
+                              <th> Branch Name </th>
+                              <th> Room Choice </th>
+                              <th> No.of Rooms </th>
+                              <th> Extra Bed </th>
+                              <th> No.of Adults </th>
+                              <th> No.of Children </th>
+                              <th> Kids Meal </th>
+                              <th> Duration </th>
+                              <th> WiFi </th>
+                              <th> Pool View </th>
+                              <th> Garden View </th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="accordion-content">
+                     <header>
+                        <span class="title"> Adventure Details </span>
+                        <i class="fa-solid fa-plus"></i>
+                     </header>
+                     <table class="table" id="overallAdventureTable">
+                        <thead>
+                           <tr>
+                              <th> Adventure </th>
+                              <th> Local Adult </th>
+                              <th> Local Kid </th>
+                              <th> Foreign Adult </th>
+                              <th> Foreign Kid </th>
+                              <th> Adult Guide </th>
+                              <th> Kid Guide</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <!-- Container to display the total cost -->
+               <div class="plan-box">
+                  <div class="plan-box-left">
+                     <img src="images/cost.png" alt="Total">
+                     <div>
+                        <h5> Total </h5>
+                        <p id="overallTotalCost"> Rs. 0 </p>
+                     </div>
+                  </div>
+               </div>
+               <!-- Continue button to navigate to the next page -->
+               <button type="button" class="btn-continue"> Continue </button>
+            </div>
+            <div class="multi step-two">
+               <!-- Payment Form which allows users to enter card details for booking. -->
+               <h2> Payment Details </h2>
+               <section class="ui">
+                  <div class="container-left">
+                     <div id="credit-card">
+                        <div class="number-container">
+                           <input type="text" name="card-number" id="card-number" maxlength="19"
+                              placeholder="1234 5678 9101 1121" required
+                              onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                           <div class="error" id="cardError"></div>
+                        </div>
+
+                        <div class="name-container">
+                           <input type="text" name="name-text" id="name-text" maxlength="30" placeholder="Aaliyah Shiam"
+                              required
+                              onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || event.key == ' '">
+                           <div class="error" id="nameError"></div>
+                        </div>
+
+                        <div class="infos-container">
+                           <div class="expiration-container">
+                              <input type="text" name="valid-thru-text" id="valid-thru-text" maxlength="5"
+                                 placeholder="02/24" required
+                                 onkeypress="return event.charCode >=48 && event.charCode <= 57">
+                              <div class="error" id="expirationError"></div>
+                           </div>
+
+                           <div class="cvv-container">
+                              <input type="text" name="cvv-text" id="cvv-text" maxlength="3" placeholder="123" required
+                                 onkeypress="return event.charCode >=48 && event.charCode <= 57">
+                              <div class="error" id="cvvError"></div>
+                           </div>
+
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="container-right">
+                     <div class="card">
+                        <div class="intern">
+                           <img class="approximation" src="images/aprox.png" alt="approximation">
+                           <div class="card-number">
+                              <label class="label"> Card Number </label>
+                              <div class="number-vl">1234 5678 9101 1121</div>
+
+                           </div>
+                           <div class="card-holder">
+                              <label class="label_1">Holder</label>
+                              <div class="name-vl"> AALIYAH SHIAM </div>
+                           </div>
+                           <div class="card-infos">
+                              <div class="exp">
+                                 <label>valid-thru</label>
+                                 <div class="expiration-vl"> 02/24 </div>
+                              </div>
+                              <div class="cvv">
+                                 <label>CVV</label>
+                                 <div class="cvv-vl">123</div>
+                              </div>
+                           </div>
+                           <img class="chip" src="images/chip (1).png" alt="chip">
+                        </div>
+                     </div>
+                  </div>
+               </section>
+
+               <!-- Button to navigate to the previous page -->
+               <button type="button" class="btn-back"> Back </button>
+               <!-- Button which displays a popup to thank users for booking-->
+               <button type="button" class="btn-confirm" id="open_modal"> Confirm </button>
+               <div class="modal-container" id="modal-container2">
+                  <div class="modal">
+                     <div class="modal-header">
+                        <h3> Thank you for booking! </h3>
+                        <i class="fa fa-close" id="close-icon"></i>
+                     </div>
+                     <DIV class="modal-content">
+                        <img src="images/tick.png" alt="Confirmation tick">
+                        <p> Thank you for choosing The Ceylon Collection. We appreciate your booking and look forward to
+                           providing an exceptional stay. Safe travels, and we can't wait to welcome you!</p>
+                     </DIV>
+                     <div class="modal-footer">
+                        <button type="button" class="btn-close" id="close_modal"> Close </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+      </div>
+      </div>
+      </form>
+      </div>
+   </main>
+
+   <!-- footer section containing branch details, contact details, subscription form, copyright details and author -->
+
+   <footer class="footer">
+
+      <div class="footer_row">
+
+         <div class="footer_column">
+            <h1> Our branches </h1> <br>
+            <hr> <br>
+            <ul>
+               <li> Nuwara Eliya </li>
+               <li> Tissamaharama </li>
+               <li> Galle </li>
+            </ul>
+         </div>
+
+         <div class="footer_column">
+            <h1> Contact us </h1> <br>
+            <hr> <br>
+            <ul>
+               <li> <a href="mailto:info@ceylon.lk"> info@ceyloncollection.lk </a> </li> <br>
+               <li> <a href="tel:+94 77 888 8888"> +94 77 888 8888 </a></li>
+            </ul>
+         </div>
+
+         <div class="footer_column">
+            <h1> Subscribe to our newsletter </h1> <br>
+            <hr> <br>
+            <form>
+               <input type="email" placeholder="Enter your email" name="email" required> <br>
+               <input type="submit" value="Subscribe">
+            </form>
+         </div>
+
+      </div>
+
+      <hr>
+
+      <div class="footer_row">
+
+         <div class="footer_column">
+            <p> &copy; 2023 The Ceylon Collection. All rights reserved </p>
+         </div>
+
+         <div class="footer_column">
+            <p> Web design & concept by Fathima Salma Muzammil </p>
+         </div>
+
+      </div>
+
+      <!-- references 
+     Accommodation (no date). Available at: https://www.jetwinghotels.com/jetwingviluyana/accommodation/.  -->
+
+   </footer>
+</body>
+
+</html>
